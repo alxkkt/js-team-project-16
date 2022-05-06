@@ -58,3 +58,13 @@
     color: var(--main-black);
     font-weight: 500;
 }
+
+.footer-icon {
+    transition-duration: 5000ms;    
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    animation-direction: transform; 
+
+        &:hover {
+            transform: scale(5);
+        }
+}
