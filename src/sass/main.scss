@@ -1,8 +1,13 @@
 // UTILS
 @import './utils/variables';
 @import './utils/mixins';
+@import './utils/visually-hidden';
 
+@import './utils/gallery';
+// COMMON
+@import './common/common';
+@import './common/container';
 @import './layouts/footer';
 
 // COMMON
-@import './common/common'
+
