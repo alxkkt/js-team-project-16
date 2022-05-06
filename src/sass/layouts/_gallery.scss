@@ -17,9 +17,14 @@
     &:last-child {
         margin-bottom: 0;
     }
+    &:hover,
+    &:focus {
+        box-shadow: 1px 26px 24px -8px rgba(191,113,38,0.78);
+    }
     @include tablet {
         width: calc(100% / 2 - 32px);
         margin-left: 32px;
+        margin-bottom: 32px;
         &:nth-last-child(-n + 2) {
             margin-bottom: 0;
         }
@@ -34,12 +39,14 @@
     &__item {
         display: flex;
         flex-direction: column;
+        cursor: pointer;
     }
     &__description {
         font-family: 'Roboto';
         font-style: normal;
         font-weight: 500;
         font-size: 12px;
+        padding: 10px;
     }
     &__info {
         color: var(--accent-color);
@@ -53,17 +60,9 @@
     }
     &__genres {
         line-height: 1.16;
+        margin-right: 7px;
     }
-    &__year::before {
-        content: "|";
-        display: inline-block;
-        margin-left: 5px;
-        margin-right: 5px;
-    }
-    &__rating::before {
-        content: "|";
-        display: inline-block;
-        margin-left: 5px;
-        margin-right: 5px;
+    &__year {
+        margin-right: 7px;
     }
 }
