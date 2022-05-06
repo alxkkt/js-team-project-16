@@ -1,5 +1,14 @@
 // UTILS
-
-@import './utils/vars';
+@import './utils/variables';
 @import './utils/mixins';
+@import './utils/visually-hidden';
 @import './utils/pagination';
+// COMMON
+
+@import './common/common';
+@import './common/container';
+
+// LAYOUT
+
+@import './layouts/gallery';
+@import './layouts/footer';
