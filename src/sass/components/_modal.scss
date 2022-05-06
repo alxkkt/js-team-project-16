@@ -1,0 +1,147 @@
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.backdrop.is-hidden .modal__container {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.backdrop {
+  z-index: 200;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba($color: #000000, $alpha: 0.8);
+  padding: 0 20px;
+  @include tablet {
+    padding: 0 32px;
+  }
+}
+
+.modal__container {
+  overflow-x: auto;
+  position: relative;
+  top: 50%;
+  left: 50%;
+
+  width: 100%;
+  max-height: 100vh;
+  padding: 48px 20px 40px 20px;
+
+  background-color: #ffffff;
+
+  transform: translate(-50%, -50%) scale(1);
+  transition-duration: 400ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  @include tablet {
+    display: flex;
+    // margin: auto;
+    // width: 100%;
+    // height: 570px;
+    padding: 40px 36px;
+  }
+  @include desktop {
+    padding: 40px 16px;
+    max-width: 814px;
+  }
+}
+
+/* кнопка Х */
+.close-button {
+  position: absolute;
+  display: flex;
+  top: 0;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  margin: 8px;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+
+  cursor: pointer;
+}
+.close-button__icon {
+  width: 30px;
+  height: 30px;
+}
+.modal__img {
+  max-width: 240px;
+  height: 357px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+
+  border-radius: 5px;
+  @include tablet {
+    margin-right: 30px;
+  }
+}
+.modal__title {
+  margin-bottom: 20px;
+}
+.modal__item + .modal__item {
+  margin-top: 8px;
+}
+.modal__item {
+  display: flex;
+}
+.modal__criteria {
+  color: var(--modal-descr-color);
+  min-width: 100px;
+
+  @include tablet {
+    min-width: 150px;
+  }
+}
+.modal__list {
+  margin-bottom: 20px;
+}
+.modal__orange {
+  color: #ffffff;
+  background-color: var(--accent-color);
+  padding-left: 10px;
+  padding-right: 10px;
+
+  border-radius: 5px;
+}
+.modal__gray {
+  background-color: #f7f7f7;
+  border-radius: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.modal__about__title {
+  margin-bottom: 8px;
+}
+.modal__descr {
+  margin-bottom: 20px;
+}
+.modal__buttons {
+  display: flex;
+}
+.modal__btn + .modal__btn {
+  margin-left: 20px;
+}
+.modal__btn {
+  box-sizing: border-box;
+  width: 110px;
+  height: 45px;
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: transparent;
+  border: 1px solid #000;
+  transition-duration: 400ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover,
+  &:focus {
+    background-color: var(--accent-color);
+    color: #fff;
+    border: 1px solid var(--accent-color);
+  }
+}
