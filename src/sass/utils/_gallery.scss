@@ -1,17 +1,10 @@
 .section {
-    padding: 20px 20px 40px 20px;
+    padding: 20px 0 40px 0;
     @include tablet {
-        padding: 60px 32px;
+        padding: 60px 0;
     }
 }
 
-.container {
-    max-width: 1024px;
-    margin: auto;
-    @include tablet {
-        max-width: 768px;
-    }
-}
 
 .gallery {
     display: flex;
