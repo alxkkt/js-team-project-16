@@ -2,5 +2,14 @@
 @import './utils/variables';
 @import './utils/mixins';
 @import './modal';
+@import './utils/visually-hidden';
+
 // COMMON
+
 @import './common/common';
+@import './common/container';
+
+// LAYOUT
+
+@import './layouts/gallery';
+@import './layouts/footer';
