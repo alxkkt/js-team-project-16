@@ -2,7 +2,6 @@
 @import './utils/variables';
 @import './utils/mixins';
 @import './utils/visually-hidden';
-@import './utils/pagination';
 // COMMON
 
 @import './common/common';
@@ -12,3 +11,4 @@
 
 @import './layouts/gallery';
 @import './layouts/footer';
+@import './layouts/pagination';
