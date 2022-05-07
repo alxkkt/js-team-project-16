@@ -1,7 +1,36 @@
-header {
+.header-container {
     margin: 0;
     padding: 0;
-    background-image: image-set(
-    url('images/bg-desktop@1.jpg') 1x,
-    url('images/bg-desktop@2.jpg') 2x);
+    @include tablet {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url("../images/bg-tablet@1.jpg");
+        background-image: -webkit-image-set(url("../images/bg-tablet@1.jpg") 1x,url("../images/bg-tablet@2.jpg") 2x);
+      background-repeat: no-repeat;
+      background-size: cover;
+      border: 1px solid rgba(0, 0, 0, 1);
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      height: 216px;
+    }
+    @include desktop {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url("../images/bg-desktop@1.jpg");
+        background-image: -webkit-image-set(url("../images/bg-desktop@1.jpg") 1x,url("../images/bg-desktop@2.jpg") 2x);
+      background-repeat: no-repeat;
+      background-size: cover;
+      border: 1px solid rgba(0, 0, 0, 1);
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      height: 216px;
+    }
+    @include mobile {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url("../images/bg-mobil@1.jpg");
+        background-image: -webkit-image-set(url("../images/bg-mobil@1.jpg") 1x, url("../images/bg-mobil@2.jpg") 2x);
+      background-repeat: no-repeat;
+      background-size: cover;
+      border: 1px solid rgba(0, 0, 0, 1);
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      height: 230px;
+    }
 }
+    
+
