@@ -1,11 +1,52 @@
+<!-- menu items with logo -->
 <div class="menu-container">
     <div class="menu-logo_container">
         <a class="logo" href="./index.html"> 
-            <img
-                src="../images/icons.svg#logo" 
+            <svg 
                 alt="filming tape image"
-                height="24"
-                width="24" />
+                width="24"
+                height="24"> 
+                <use href="./images/icons.svg#logo">
+                </use>
+            </svg> 
             <span class="logo_header">Filmoteka</span></a>
     </div>
+    <div class="menu-nav-container">
+    <nav class="navbar">
+        <ul class="navbar-menu">
+            <li class="navbar-item_wrap"><a class="navbar-item_link active" href="./index.html"> Home</a></li>
+            <li class="navbar-item_wrap"><a class="navbar-item_btn" href="./index.html" >My library</a></li>
+        </ul>
+    </nav>
+    </div>
 </div>
+
+<!-- input form -->
+<div class="search__container">
+    <form class="search-form" id="search-form">
+      <input
+        class="input__box"
+        type="text"
+        name="searchQuery"
+        autocomplete="off"
+        placeholder="Searching movies..."
+      />
+      <button class="search__btn" type="submit" name="submitBtn">
+        <svg class="search__icon" width="9" height="9">
+          <use href="./images/icons.svg#search"></use>
+        </svg>
+      </button>
+    </form>
+</div>
+
+<!-- buttons, would be displayed onclick on my library , default display none-->
+<div class="btns-container">
+    <button class="button-watched active">Watched</button> 
+    <button class="button-queued ">Queue</button>
+</div>
+
+<!-- 1 class active added as default on 'home', 'btn watched'. 
+    JS will remove class 'active'  and add to 'my library', and 'btn queued' 
+    to add some markup of the current choice.
+    2 'btn container' default display none 
+    3 bg changes onclick on 'my library'-->
