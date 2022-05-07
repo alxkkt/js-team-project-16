@@ -1,0 +1,254 @@
+.header-container {
+    margin: 0 auto;
+    padding: 0;
+    width:320px;
+    height: 230px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../images/bg-mobil@1.jpg");
+    background-image: -webkit-image-set(url("../images/bg-mobil@1.jpg") 1x, url("../images/bg-mobil@2.jpg") 2x);
+      background-repeat: no-repeat;
+      background-size: cover;
+      border: 1px solid rgba(0, 0, 0, 1);
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      
+    
+    @include tablet {
+        width:768px;
+        height: 216px;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url("../images/bg-tablet@1.jpg");
+        background-image: -webkit-image-set(url("../images/bg-tablet@1.jpg") 1x,url("../images/bg-tablet@2.jpg") 2x);
+      background-repeat: no-repeat;
+      background-size: cover;
+      border: 1px solid rgba(0, 0, 0, 1);
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      
+    }
+    @include desktop {
+        width:1024px;
+        height: 216px;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url("../images/bg-desktop@1.jpg");
+        background-image: -webkit-image-set(url("../images/bg-desktop@1.jpg") 1x,url("../images/bg-desktop@2.jpg") 2x);
+      background-repeat: no-repeat;
+      background-size: cover;
+      border: 1px solid rgba(0, 0, 0, 1);
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      
+    }
+    
+}
+a:visited {
+    color: #ffffff;
+    text-decoration: none; 
+}
+.menu-logo_container {
+    &:hover, &:focus, &:active {
+        border-radius: 3px;
+        background-image: linear-gradient(to right, #bd5050, #ec8c69, #e14e0a , #FBB03B);
+        box-shadow: 0 4px 15px 0 rgba(182, 125, 11, 0.75);
+    }
+}
+.logo_header{
+    color:#ffffff;
+    font-family:'Roboto',sans-serif;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: (35px/30px);
+    display: none;
+
+    @include tablet{
+        display: inline;
+    }
+    @include desktop{
+        display: inline;
+    }
+    
+}
+.menu-container{
+    margin: 0;
+    padding-top: 40px;
+    padding-left: 32px;
+    padding-right: 32px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    @include mobile {
+       padding-top: 44px;
+       padding-left: 20px;
+       padding-right: 20px;
+    }
+}   
+.menu-nav-container{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+.navbar {
+    margin: 0;
+    padding: 0;
+}
+.navbar-menu{
+    display: flex;
+    color:#ffffff;
+    font-family:'Roboto',sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: (14px/12px);
+}
+.navbar-item_wrap{
+    margin-left: 40px;
+    &:hover, &:focus, &:active {
+        border-radius: 3px;
+        border-radius: 1px;
+        transform:scale(1.3,1.3);
+        -webkit-transform:scale(1.3,1.3);
+        -moz-transform:scale(1.3,1.3);
+        background-image: linear-gradient(to right, #bd5050, #ec8c69, #e14e0a , #FBB03B);
+        box-shadow: 0 4px 15px 0 rgba(182, 125, 11, 0.75);
+    }
+}
+
+.current{
+    border-bottom: 1px solid var(--accent-color);
+    padding-bottom:1px;
+}
+.search-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+    @include tablet {
+        margin-top: 40px;
+    }
+    @include desktop{
+        margin-top: 40px;
+    }
+}
+
+.search-form{
+    position: absolute;
+    transition: background 1s ease-in-out;
+    &::after {
+        position: absolute;
+        bottom: -1px;
+  
+        content: "";
+        display: block;
+        width: 100%;
+        height: 1px;
+        background-color: #ffffff;
+      }
+      &:hover, &:focus, &:active {
+        border-radius: 1px;
+        transform:scale(1.3,1.3);
+        -webkit-transform:scale(1.3,1.3);
+        -moz-transform:scale(1.3,1.3);
+        background-image: linear-gradient(to right, #bd5050, #ec8c69, #e14e0a , #FBB03B);
+        box-shadow: 0 4px 15px 0 rgba(182, 125, 11, 0.75);
+    }
+}
+
+.input-box{
+    background: none;
+    outline: none;
+    border: none;
+    padding: 0 0 4px 0;
+    width: 260px;
+    color: #ffffff;
+    font-family:'Roboto',sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: (16px/14px);
+  }
+  ::placeholder {
+    color: #ffffff;
+}
+.search-btn{
+    border:transparent;
+    background-color: transparent;
+}
+.btns-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+    @include tablet {
+        margin-top: 40px;
+    }
+    @include desktop{
+        margin-top: 40px;
+    }
+
+}
+
+.unabled {
+    display: none;
+}
+.button-watched{
+    border:1px solid white;
+    background-color: transparent;
+    color: #ffffff;
+    font-family:'Roboto',sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: (16px/12px);
+    border-radius:5px;
+    min-width: 130px;
+    height: 44px;
+    margin-right: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include tablet{
+    margin-right: 32px;
+    min-width: 152px;
+    
+    }
+    @include desktop{
+    margin-right: 16px;
+    min-width: 148px;
+    height: 42px;
+    }
+    &:hover, &:focus, &:active {
+        background-image: linear-gradient(to right, #bd5050, #ec8c69, #e14e0a , #FBB03B);
+        box-shadow: 0 4px 15px 0 rgba(182, 125, 11, 0.75);
+        
+    }
+}
+.active{
+    background-color: var(--accent-color);
+    border:transparent;
+}
+.button-queued{
+    border:1px solid white;
+    background-color: transparent;
+    color: #ffffff;
+    font-family:'Roboto',sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: (16px/12px);
+    border-radius:5px;
+    min-width: 130px;
+    height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    @include tablet{
+    margin-right: 32px;
+    min-width: 152px;
+    
+    }
+    @include desktop{
+    
+    min-width: 148px;
+    height: 42px;
+    }
+    &:hover, &:focus, &:active {
+        background-image: linear-gradient(to right, #bd5050, #ec8c69, #e14e0a , #FBB03B);
+        box-shadow: 0 4px 15px 0 rgba(182, 125, 11, 0.75);
+        
+    }
+}
