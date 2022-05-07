@@ -1,5 +1,5 @@
 <!-- menu items with logo -->
-<dev class="header-container">
+<div class="header-container">
 <div class="menu-container">
     <div class="menu-logo_container">
         <a class="logo" href="./index.html"> 
@@ -15,7 +15,7 @@
     <div class="menu-nav-container">
     <nav class="navbar">
         <ul class="navbar-menu">
-            <li class="navbar-item_wrap"><a class="navbar-item_link active" href="./index.html"> Home</a></li>
+            <li class="navbar-item_wrap"><a class="navbar-item_link" href="./index.html"> Home</a></li>
             <li class="navbar-item_wrap"><a class="navbar-item_btn" href="./index.html">My library</a></li>
         </ul>
     </nav>
@@ -23,17 +23,17 @@
 </div>
 
 <!-- input form -->
-<div class="search__container">
+<div class="search-container">
     <form class="search-form" id="search-form">
       <input
-        class="input__box"
+        class="input-box"
         type="text"
         name="searchQuery"
         autocomplete="off"
         placeholder="Searching movies..."
       />
-      <button class="search__btn" type="submit" name="submitBtn">
-        <svg class="search__icon" width="9" height="9">
+      <button class="search-btn" type="submit" name="submitBtn">
+        <svg class="search-icon" width="9" height="9">
           <use href="./images/icons.svg#search"></use>
         </svg>
       </button>
@@ -41,13 +41,12 @@
 </div>
 
 <!-- buttons, would be displayed onclick on my library , default display none-->
-<div class="btns-container">
+<div class="btns-container unabled">
     <button class="button-watched active">Watched</button> 
     <button class="button-queued ">Queue</button>
 </div>
 </div>
-<!-- 1 class active added as default on 'home', 'btn watched'. 
-    JS will remove class 'active'  and add to 'my library', and 'btn queued' 
-    to add some markup of the current choice.
-    2 'btn container' default display none 
-    3 bg changes onclick on 'my library'-->
+<!-- 1 class needs to be added  for 'home', 'my library'. 
+    JS will remove class  and add to active page
+    2 'btn container' default display none with class 'unabled', remove that class when click on 'my library'
+    3 bg changes onclick on 'my library' by removing and adding class 'active'-->
