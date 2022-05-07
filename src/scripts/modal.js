@@ -1,26 +1,33 @@
 const refs = {
   gallery: document.querySelector('.gallery'),
+  closeBtn: document.querySelector('[data-modal-close]'),
   modal: document.querySelector('[data-modal]'),
+  backdrop: document.querySelector('.backdrop'),
 };
 
 refs.gallery.addEventListener('click', openModal);
-refs.modal.addEventListener('click', closeModal);
+refs.closeBtn.addEventListener('click', closeModal);
+refs.backdrop.addEventListener('click', onBackdrop);
 
 function openModal(e) {
-  console.dir(e.target);
-  if (e.target.parentNode.className !== 'film__item' && e.target.nodeName !== 'P') return;
+  if (e.target === refs.gallery) return;
 
   refs.modal.classList.remove('is-hidden');
+  window.addEventListener('keydown', onEscPress);
 }
 
-function closeModal(e) {
-  if (e.target !== refs.modal && e.target.nodeName !== 'svg' && e.target.nodeName !== 'use') return;
+function onBackdrop(e) {
+  e.target === refs.backdrop && closeModal();
+}
 
-  document.addEventListener('keydown', e => {
-    if (e.code === 'Escape') {
-      refs.modal.classList.add('is-hidden');
-    }
-  });
+function closeModal() {
+  window.removeEventListener('keydown', onEscPress);
 
   refs.modal.classList.add('is-hidden');
+}
+
+function onEscPress(e) {
+  if (e.code === 'Escape') {
+    closeModal();
+  }
 }
