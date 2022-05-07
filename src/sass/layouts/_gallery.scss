@@ -19,7 +19,9 @@
     }
     &:hover,
     &:focus {
-        box-shadow: 1px 26px 24px -8px rgba(191,113,38,0.78);
+        box-shadow: -1px 16px 16px -10px rgba(191,113,38,0.78);
+        border: 1px solid transparent;
+        border-radius: 0px 0px 5px 5px;
     }
     @include tablet {
         width: calc(100% / 2 - 32px);
@@ -60,9 +62,15 @@
     }
     &__genres {
         line-height: 1.16;
-        margin-right: 7px;
+        margin-right: 5px;
     }
     &__year {
-        margin-right: 7px;
+        margin-right: 5px;
+    }
+    &__value {
+        background-color: var(--accent-color);
+        color: #fff;
+        padding: 2px 5px;
+        border-radius: 2px;
     }
 }
