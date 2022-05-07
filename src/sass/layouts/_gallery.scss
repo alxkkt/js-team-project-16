@@ -21,7 +21,7 @@
     &:focus {
         box-shadow: -1px 16px 16px -10px rgba(191,113,38,0.78);
         border: 1px solid transparent;
-        border-radius: 0px 0px 5px 5px;
+        border-radius: 0px 0px 6px 6px;
     }
     @include tablet {
         width: calc(100% / 2 - 32px);
