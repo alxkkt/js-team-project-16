@@ -12,7 +12,7 @@ refs.backdrop.addEventListener('click', onBackdrop);
 function openModal(e) {
   if (e.target === refs.gallery) return;
 
-  refs.modal.classList.remove('is-hidden');
+  refs.modal.classList.remove('visually-hidden');
   window.addEventListener('keydown', onEscPress);
 }
 
@@ -23,7 +23,7 @@ function onBackdrop(e) {
 function closeModal() {
   window.removeEventListener('keydown', onEscPress);
 
-  refs.modal.classList.add('is-hidden');
+  refs.modal.classList.add('visually-hidden');
 }
 
 function onEscPress(e) {

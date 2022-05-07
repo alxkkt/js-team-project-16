@@ -1,9 +1,4 @@
-.backdrop.is-hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.backdrop.is-hidden .modal__container {
+.backdrop.visually-hidden .modal__container {
   transform: translate(-50%, -50%) scale(1.1);
 }
 
