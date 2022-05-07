@@ -4,9 +4,18 @@
   text-align: center;
 }
 
+.pagination-section {
+  padding-top: 0;
+}
+
+.ellipsis {
+  color: var(--main-black);
+}
+
 .number-arrow {
   color: var(--main-black);
   background-color: var(--bg-color);
+  border: none;
   padding-top: 8px;
   padding-bottom: 12px;
   padding-left: 14px;
@@ -15,14 +24,13 @@
 }
 
 .invisible {
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     display: none;
   }
 }
 
 .number {
   color: var(--main-black);
-
   font-family: 'Roboto';
   font-size: 12px;
   line-height: 1.33;
@@ -31,7 +39,7 @@
 
 .number.active {
   background-color: var(--accent-color);
-  color: var(--main-black);
+  color: #ffffff;
   border-radius: 5px;
 }
 
