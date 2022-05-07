@@ -42,6 +42,10 @@
     padding: 40px 16px;
     max-width: 814px;
   }
+    @media (prefers-color-scheme: dark) {
+      background-color: #212121;
+      color: hsl(0, 0%, 80%);
+}
 }
 
 /* кнопка Х */
@@ -63,6 +67,20 @@
 .close-button__icon {
   width: 30px;
   height: 30px;
+
+  @media (prefers-color-scheme: dark) {
+    fill: #c4c3c3;
+  }
+
+  &:hover {
+    @media (prefers-color-scheme: dark) {
+      fill: var(--accent-color);
+
+      transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+  }
+
+
 }
 .modal__img {
   max-width: 240px;
@@ -109,6 +127,10 @@
   border-radius: 5px;
   padding-left: 10px;
   padding-right: 10px;
+  @media (prefers-color-scheme: dark) {
+      
+      color: #212121;
+    }
 }
 .modal__about__title {
   margin-bottom: 8px;
@@ -139,4 +161,8 @@
     color: #fff;
     border: 1px solid var(--accent-color);
   }
+    @media (prefers-color-scheme: dark) {
+      color: #c4c3c3;
+      border: #c4c3c3 1px solid;
+}
 }

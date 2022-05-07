@@ -173,12 +173,12 @@ a:visited {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 60px;
+
     @include tablet {
-        margin-top: 40px;
+        margin-bottom: 60px;
     }
     @include desktop{
-        margin-top: 40px;
+        margin-bottom: 60px;
     }
 
 }
