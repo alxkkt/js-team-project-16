@@ -72,8 +72,8 @@
     justify-content: space-between;
     @include mobile {
        padding-top: 44px;
-       padding-left: 20px;
-       padding-right: 20px;
+       padding-left: 32px;
+       padding-right: 32px;
     }
 }   
 .menu-nav-container{
@@ -95,13 +95,21 @@
     line-height: (14px/12px);
 }
 .navbar-item_wrap{
-    margin-left: 40px;
+    &:last-child {
+        margin-left: 40px;
+    }
+
+    &:hover {
+        border-bottom: 3px solid var(--accent-color);
+
+        transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
    
 }
 
 .current{
-    border-bottom: 1px solid var(--accent-color);
-    padding-bottom:1px;
+    border-bottom: 3px solid var(--accent-color);
+    padding-bottom: 1px;
 }
 .search-container{
     display: flex;
