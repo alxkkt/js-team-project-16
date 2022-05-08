@@ -33,3 +33,9 @@ img {
     display: block;
     max-width: 100%;
 }
+
+body {
+    &.footer-modal-open {
+        overflow: hidden;
+    }
+}
