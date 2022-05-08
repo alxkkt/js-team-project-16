@@ -19,17 +19,17 @@ export class Modal {
   }
   openModal(e) {
     e.preventDefault();
-    console.log(e.target);
 
     if (e.target === this.refs.container) return;
 
     window.addEventListener('keydown', this.onEscPress.bind(this));
-
+    document.body.classList.add('footer-modal-open');
     this.refs.backdrop.classList.remove('visually-hidden');
   }
   closeModal() {
     window.removeEventListener('keydown', this.onEscPress.bind(this));
     this.refs.backdrop.classList.add('visually-hidden');
+    document.body.classList.remove('footer-modal-open');
   }
   onBackdropClick(e) {
     e.target === this.refs.backdrop && this.closeModal();
