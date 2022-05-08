@@ -61,6 +61,9 @@
     &:focus {
         fill: var(--accent-color);
     }
+    @media (prefers-color-scheme: dark) {
+        
+    }
 }
 
 .team-title {
@@ -173,4 +176,10 @@
     justify-content: center;
     margin-top: 5px;
     margin-bottom: 5px;
+}
+
+.team-social-icon {
+    @media (prefers-color-scheme: dark) {
+        fill: var(--dark-theme-white-color);
+    }
 }
