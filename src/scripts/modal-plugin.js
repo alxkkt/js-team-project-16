@@ -19,6 +19,7 @@ export class Modal {
   }
   openModal(e) {
     e.preventDefault();
+    console.log(e.target);
 
     if (e.target === this.refs.container) return;
 
