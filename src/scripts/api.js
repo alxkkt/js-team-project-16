@@ -48,16 +48,6 @@ async function firstPage () {
 
 firstPage();
 
-function getGenreName (genreId) {
-    const genreNames = genreId.map(id => {
-        const {name} = genres.find(item => item.id === id) ? genres.find(item => item.id === id) : '';
-        return name
-    });
-    return genreNames;
-}
-
-getGenreName();
-
 function renderGallery(movies) {
     const markUp = movies.map(({poster_path, title, original_title, genre_ids, release_date, vote_average}) => `
     <li class="film">
