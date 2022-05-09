@@ -1,4 +1,4 @@
-:root {
+html {
   --accent-color: #ff6b08;
   --main-black: #000000;
   --main-red: #ff001b;
@@ -6,4 +6,15 @@
   --bg-color: #f7f7f7;
   --logo-color: #818181;
   --modal-descr-color: #8c8c8c;
+  --dark-theme-bg-color: #212121;
+  --dark-theme-white-color: #d5d5d5;
+
+  @media (prefers-color-scheme: dark) {
+      --bg-color: #2a2828;
+
+      body {
+        background-color: var(--dark-theme-bg-color);
+        color: var(--dark-theme-white-color);
+      }
+}
 }

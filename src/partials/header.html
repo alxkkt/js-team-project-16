@@ -6,7 +6,8 @@
             <svg 
                 alt="filming tape image"
                 width="24"
-                height="24"> 
+                height="24"
+                class="logo-svg">
                 <use href="./images/icons.svg#logo">
                 </use>
             </svg> 
@@ -15,8 +16,8 @@
     <div class="menu-nav-container">
     <nav class="navbar">
         <ul class="navbar-menu">
-            <li class="navbar-item_wrap current"><a class="navbar-item_link" href="./index.html"> Home</a></li>
-            <li class="navbar-item_wrap"><a class="navbar-item_btn" href="./index.html">My library</a></li>
+            <li class="navbar-item_wrap current" id="home"><a class="navbar-item_link" href="./index.html">Home</a></li>
+            <li class="navbar-item_wrap" id="library"><a class="navbar-item_btn" href="./index.html">My library</a></li>
         </ul>
     </nav>
     </div>
@@ -38,13 +39,14 @@
         </svg>
       </button>
     </form>
+    <div class="btns-container visually-hidden">
+      <button class="button-watched active">Watched</button>
+      <button class="button-queued">Queue</button>
+    </div>
 </div>
 
 <!-- buttons, would be displayed onclick on my library , default display none-->
-<div class="btns-container visually-hidden">
-    <button class="button-watched active">Watched</button> 
-    <button class="button-queued">Queue</button>
-</div>
+
 </div>
 <!-- 1 class 'current'responsible for underlining 'home', 'my library'. remove and add class with JS on click 
     2 'btn container' default display none with class 'unabled', remove that class when click on 'my library'
