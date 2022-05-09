@@ -84,4 +84,4 @@ module.exports=require("./lib/axios");
 },{"axios":"dZBD"}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./scripts/api");
 },{"./sass/main.scss":"clu1","./scripts/api":"SYrZ"}]},{},["Focm"], null)
-//# sourceMappingURL=/js-team-project-16/src.41c8e8c0.js.map
+//# sourceMappingURL=/js-team-project-16/src.57b782f6.js.map
