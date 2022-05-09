@@ -34,7 +34,7 @@
     @include desktop {
         width: calc(100% / 3 - 17px);
         margin-left: 17px;
-        &:nth-last-child(-n + 3) {
+        &:nth-last-child(-n + 2) {
             margin-bottom: 0;
         }
     }
@@ -48,13 +48,14 @@
         font-style: normal;
         font-weight: 500;
         font-size: 12px;
-        padding: 10px;
+        padding: 10px 0 10px 5px;
     }
     &__info {
         color: var(--accent-color);
         display: flex;
     }
     &__title {
+        font-size: 12px;
         line-height: 1.33;
         text-transform: uppercase;
         margin-top: 10px;

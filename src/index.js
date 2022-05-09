@@ -1,2 +1,2 @@
 import './sass/main.scss';
-import './scripts/api'
+import './scripts/api';
