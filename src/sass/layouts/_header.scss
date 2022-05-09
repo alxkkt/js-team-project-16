@@ -1,20 +1,38 @@
-.header-container {
+.background-header{
   margin: 0 auto;
   padding: 0;
-  width: 320px;
+  min-width: 320px;
   height: 230px;
   
 
   @include tablet {
-    width: 768px;
+    min-width: 768px;
     height: 216px;
     
   }
   @include desktop {
-    width: 1024px;
+    min-width: 1024px;
     height: 216px;
     
   }
+}
+.header-container {
+    margin: 0 auto;
+    padding: 0;
+    width: 320px;
+    height: 230px;
+    
+  
+    @include tablet {
+      width: 768px;
+      height: 216px;
+      
+    }
+    @include desktop {
+      width: 1024px;
+      height: 216px;
+      
+    }
 }
 .bg-1{
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
@@ -86,6 +104,7 @@
 
 .navbar-item_link,
 .navbar-item_btn {
+    cursor: pointer;
   text-transform: uppercase;
   &:hover {
     color: rgba($color: #ffffff, $alpha: 0.8);
@@ -100,6 +119,7 @@
 }
 
 .logo_header {
+  cursor: pointer;
   color: #ffffff;
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
@@ -117,13 +137,18 @@
 .menu-container {
   margin: 0;
   padding-top: 40px;
-  padding-left: 32px;
-  padding-right: 32px;
+  padding-left: 20px;
+  padding-right: 20px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  @include mobile {
-    padding-top: 44px;
+  @include tablet {
+    padding-top: 40px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+  @include desktop {
+    padding-top: 40px;
     padding-left: 32px;
     padding-right: 32px;
   }
@@ -185,10 +210,11 @@
 }
 
 .input-box {
+  cursor: pointer;
   background: none;
   outline: none;
   border: none;
-  padding: 0 0 4px 0;
+  padding-left:1px;
   width: 260px;
   color: #ffffff;
   font-family: 'Roboto', sans-serif;
@@ -200,6 +226,7 @@
   color: #ffffff;
 }
 .search-btn {
+  cursor: pointer;
   border: transparent;
   background-color: transparent;
 }
