@@ -6,7 +6,7 @@ const SEARCH_URL = `/search/movie`
 const API_KEY = 'f65bce350427b2684a98ce5b213c02c8';
 
 const gallery = document.querySelector(".gallery");
-
+// fetch TREND FILM
 async function getTrendFilm (page) {
     try {
         const { data } = await axios.get(`${TREND_URL}?api_key=${API_KEY}&page=${page}`);
@@ -15,7 +15,7 @@ async function getTrendFilm (page) {
         console.error(error);
     }
 }
-
+// fetch with SEARCH
 async function getSearchFilm (value, page) {
     try {
         const {data} = await axios.get(`${SEARCH_URL}?api_key=${API_KEY}&query=${value}&page=${page}`);
@@ -23,18 +23,16 @@ async function getSearchFilm (value, page) {
         console.error(error);
     }
 }
-
+// fetch GENRE
 async function getGenre () {
     try {
         const { data } = await axios.get(`genre/movie/list?api_key=${API_KEY}`)
-        genres = data.genres
+        return data.genres
     } catch (error) {
         console.error(error);
     }
 }
-
-getGenre();
-
+// render MAIN PAGE
 async function firstPage () {
     try {
         const data = await getTrendFilm(1);
@@ -47,7 +45,11 @@ async function firstPage () {
 }
 
 firstPage();
-
+// CREATE YEAR
+function createYear(obj) {
+    return obj.slice(0, 4)
+}
+// MARK UP
 function renderGallery(movies) {
     const markUp = movies.map(({poster_path, title, original_title, genre_ids, release_date, vote_average}) => `
     <li class="film">
@@ -61,7 +63,7 @@ function renderGallery(movies) {
                 <p>${genre_ids} &#124;</p>
             </li>
             <li class="film__year">
-                <p>${release_date} &#124;</p>
+                <p>${createYear(release_date)} &#124;</p>
             </li>
             <li class="film__rating">
                 <p><span class="film__value">${vote_average}</span></p>
