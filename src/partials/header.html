@@ -1,30 +1,30 @@
 <!-- menu items with logo -->
 <div class="header-container">
-<div class="menu-container">
+  <div class="menu-container">
     <div class="menu-logo_container">
-        <a class="logo" href="./index.html"> 
-            <svg 
-                alt="filming tape image"
-                width="24"
-                height="24"
-                class="logo-svg">
-                <use href="./images/icons.svg#logo">
-                </use>
-            </svg> 
-            <span class="logo_header">Filmoteka</span></a>
+      <a class="logo" href="./index.html">
+        <svg alt="filming tape image" width="24" height="24" class="logo-svg">
+          <use href="./images/icons.svg#logo"></use>
+        </svg>
+        <span class="logo_header">Filmoteka</span></a
+      >
     </div>
     <div class="menu-nav-container">
-    <nav class="navbar">
+      <nav class="navbar">
         <ul class="navbar-menu">
-            <li class="navbar-item_wrap current" id="home"><a class="navbar-item_link" href="./index.html">Home</a></li>
-            <li class="navbar-item_wrap" id="library"><a class="navbar-item_btn" href="./index.html">My library</a></li>
+          <li class="navbar-item_wrap" id="home">
+            <a class="navbar-item_link current" href="./index.html">Home</a>
+          </li>
+          <li class="navbar-item_wrap" id="library">
+            <a class="navbar-item_btn" href="./index.html">My library</a>
+          </li>
         </ul>
-    </nav>
+      </nav>
     </div>
-</div>
+  </div>
 
-<!-- input form -->
-<div class="search-container">
+  <!-- input form -->
+  <div class="search-container">
     <form class="search-form" id="search-form">
       <input
         class="input-box"
@@ -40,13 +40,12 @@
       </button>
     </form>
     <div class="btns-container visually-hidden">
-      <button class="button-watched active">Watched</button>
-      <button class="button-queued">Queue</button>
+      <button class="button watched active">Watched</button>
+      <button class="button queued">Queue</button>
     </div>
-</div>
+  </div>
 
-<!-- buttons, would be displayed onclick on my library , default display none-->
-
+  <!-- buttons, would be displayed onclick on my library , default display none-->
 </div>
 <!-- 1 class 'current'responsible for underlining 'home', 'my library'. remove and add class with JS on click 
     2 'btn container' default display none with class 'unabled', remove that class when click on 'my library'
