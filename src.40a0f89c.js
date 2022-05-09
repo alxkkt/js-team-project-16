@@ -5,4 +5,4 @@ const e=document.querySelector(".gallery"),t=document.querySelector(".navbar-ite
 },{}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./scripts/save-to-LS");
 },{"./sass/main.scss":"clu1","./scripts/save-to-LS":"ERNN"}]},{},["Focm"], null)
-//# sourceMappingURL=/js-team-project-16/src.94e42dd6.js.map
+//# sourceMappingURL=/js-team-project-16/src.40a0f89c.js.map
