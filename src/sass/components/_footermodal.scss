@@ -38,9 +38,6 @@
     transition: transform 2500ms cubic-bezier(0.4, 0, 0.2, 1),
         opacity 2500ms cubic-bezier(0.4, 0, 0.2, 1);
 
-    // min-height: 609px;
-    width: auto;
-
     background-color: var(--bg-color);
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
         0px 2px 1px rgba(0, 0, 0, 0.2);
@@ -48,6 +45,11 @@
 
     @include tablet {
         padding: 40px 32px;
+    }
+
+    @include desktop {
+        min-width: 850px;
+        max-height: 760px;
     }
 }
 
@@ -189,8 +191,8 @@
     }
 
     @include desktop {
-        padding: 10px 10px;
-        font-size: 10px;
+        padding: 70px 20px;
+        font-size: 16px;
     }
 }
 
