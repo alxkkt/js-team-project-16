@@ -1,3 +1,13 @@
+.footer-backdrop.visually-hidden {
+    opacity: 0;
+    pointer-events: none;
+
+    & .footer-modal {
+        transform: translate(-50%, -50%) scale(0.2);
+        opacity: 0;
+    }
+}
+
 .footer-backdrop {
     position: fixed;
     top: 0;
@@ -28,9 +38,6 @@
     transition: transform 2500ms cubic-bezier(0.4, 0, 0.2, 1),
         opacity 2500ms cubic-bezier(0.4, 0, 0.2, 1);
 
-    // min-height: 609px;
-    width: auto;
-
     background-color: var(--bg-color);
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
         0px 2px 1px rgba(0, 0, 0, 0.2);
@@ -38,6 +45,11 @@
 
     @include tablet {
         padding: 40px 32px;
+    }
+
+    @include desktop {
+        min-width: 850px;
+        max-height: 760px;
     }
 }
 
@@ -66,8 +78,27 @@
     }
 }
 
+.team-title-container {
+    display: flex;
+    align-items: flex-start;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+}
+
 .team-title {
+
+    width: 200px;
     text-align: center;
+
+}
+
+.team-title-item {
+    text-transform: uppercase;
+}
+
+.codebusters-logo-item {
+    color: var(--accent-color);
 }
 
 .team-list {
@@ -89,10 +120,12 @@
 
 .team-item {
     margin-bottom: 30px;
-    width: 100%;
+    width: 280px;
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
         0px 2px 1px rgba(0, 0, 0, 0.2);
     border-radius: 0px 0px 4px 4px;
+    margin-left: auto;
+    margin-right: auto;
 
     @include tablet {
         width: calc(100% / 2 - 34px);
@@ -122,7 +155,6 @@
         bottom: 0;
         content: '';
         background-color: var(--accent-color);
-        /* opacity: 0; */
         transform: translateY(101%);
 
         transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -136,15 +168,14 @@
 .team-container-text {
     position: absolute;
     margin: 0;
-    padding: 10px 10px;
-    font-size: 10px;
+    padding: 120px 10px;
+    font-size: 16px;
     line-height: (16px/12px);
     letter-spacing: 0.03em;
-    text-align: center;
+    // text-align: center;
     color: var(--bg-color);
     left: 0;
     bottom: 0;
-    /* opacity: 0; */
     overflow: hidden;
     transform: translateY(101%);
 
@@ -152,6 +183,16 @@
 
     .team-item:hover & {
         transform: translateY(0);
+    }
+
+    @include tablet {
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+
+    @include desktop {
+        padding: 70px 20px;
+        font-size: 16px;
     }
 }
 
