@@ -1,5 +1,5 @@
 import axios from 'axios';
-import genresData from './genres.json'
+import genresData from './genres.json';
 import { pagination } from './pagination';
 import galleryMarkup from '../templates/gallery-markup.hbs';
 
@@ -12,15 +12,21 @@ const API_KEY = 'f65bce350427b2684a98ce5b213c02c8';
 const gallery = document.querySelector('.gallery');
 const input = document.querySelector('.input-box');
 const form = document.querySelector('.search-form');
+
+// console.log(Handlebars);
 // fetch TREND FILM
 async function getTrendFilm(page) {
-    try {
-        const { data } = await axios.get(`${TREND_URL}?api_key=${API_KEY}&page=${page}`);
-        return data;
-    } catch (error) {
-        console.error(error);
-    }
+  try {
+    const { data } = await axios.get(`${TREND_URL}?api_key=${API_KEY}&page=${page}`);
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
 }
+
+// Handlebars.registerHelper('correctDate', function (string) {
+//   return this.string.slice(0, 4);
+// });
 // fetch with SEARCH
 async function getSearchFilm(value, page) {
   try {
@@ -42,9 +48,9 @@ async function onButtonClick(event) {
   const searchText = input.value.trim();
   if (searchText !== '') {
     const data = await getSearchFilm(searchText, 1);
-    console.log('serch date', data);
 
     gallery.innerHTML = galleryMarkup(data.results);
+    sessionStorage.setItem('current-page', JSON.stringify(data.results));
   } else if (data.results.length > 20) {
     searchPagination(totalResults);
   }
@@ -52,12 +58,12 @@ async function onButtonClick(event) {
 
 // fetch GENRE
 async function getGenre() {
-    try {
-        const { data } = await axios.get(`genre/movie/list?api_key=${API_KEY}`);
-        return data.genres;
-    } catch (error) {
-        console.error(error);
-    }
+  try {
+    const { data } = await axios.get(`genre/movie/list?api_key=${API_KEY}`);
+    return data.genres;
+  } catch (error) {
+    console.error(error);
+  }
 }
 // render MAIN PAGE
 async function firstPage() {
@@ -65,6 +71,7 @@ async function firstPage() {
     const data = await getTrendFilm(1);
 
     gallery.innerHTML = galleryMarkup(data.results);
+    sessionStorage.setItem('current-page', JSON.stringify(data.results));
 
     trendPagination(data.total_results);
   } catch (error) {
@@ -75,12 +82,9 @@ async function firstPage() {
 firstPage();
 // CREATE YEAR
 function createYear(obj) {
-    return obj.slice(0, 4);
+  return obj.slice(0, 4);
 }
 // FUNCTION FOR GENRE
-
-
-
 
 // MARK UP
 
@@ -92,6 +96,7 @@ function searchPagination(totalResults) {
     window.scrollTo(0, 0);
 
     gallery.innerHTML = galleryMarkup(data.results);
+    sessionStorage.setItem('current-page', JSON.stringify(data.results));
   });
 }
 
@@ -103,6 +108,7 @@ function trendPagination(totalResults) {
     window.scrollTo(0, 0);
 
     gallery.innerHTML = galleryMarkup(data.results);
+    sessionStorage.setItem('current-page', JSON.stringify(data.results));
   });
 }
 

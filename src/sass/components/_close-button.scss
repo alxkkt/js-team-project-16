@@ -18,13 +18,15 @@
 
     &:hover,
     &:focus {
-        fill: var(--accent-color);
+        fill: var(--accent-color) !important;
     }
 }
 
 .close-button__icon {
     width: 30px;
     height: 30px;
+
+    fill: var(--main-black);
 
     @media (prefers-color-scheme: dark) {
         fill: #c4c3c3;
