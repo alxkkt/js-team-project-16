@@ -49,6 +49,10 @@ firstPage();
 function createYear(obj) {
     return obj.slice(0, 4)
 }
+// FUNCTION FOR GENRE
+
+
+
 // MARK UP
 function renderGallery(movies) {
     const markUp = movies.map(({poster_path, title, original_title, genre_ids, release_date, vote_average}) => `
