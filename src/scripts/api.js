@@ -43,8 +43,7 @@ async function onButtonClick(event) {
     const data = await getSearchFilm(searchText, 1);
     console.log('serch date', data);
 
-    const markup = galleryMarkup(data.results);
-    gallery.insertAdjacentHTML('afterbegin', markup);
+    gallery.innerHTML = galleryMarkup(data.results);
   } else if (data.results.length > 20) {
     searchPagination(totalResults);
   }
@@ -64,8 +63,7 @@ async function firstPage() {
   try {
     const data = await getTrendFilm(1);
 
-    const markup = galleryMarkup(data.results);
-    gallery.innerHTML = markup;
+    gallery.innerHTML = galleryMarkup(data.results);
 
     trendPagination(data.total_results);
   } catch (error) {
@@ -98,8 +96,7 @@ function trendPagination(totalResults) {
     const data = await getTrendFilm(event.page);
     window.scrollTo(0, 0);
 
-    const markup = galleryMarkup(data.results);
-    gallery.innerHTML = markup;
+    gallery.innerHTML = galleryMarkup(data.results);
   });
 }
 
@@ -112,32 +109,3 @@ function getGenreName(genreId) {
 }
 
 // getGenreName();
-
-// function renderGallery(movies) {
-//   const markUp = movies
-//     .map(
-//       ({ poster_path, title, original_title, genre_ids, release_date, vote_average }) => `
-//     <li class="film">
-//     <div class="film__item">
-//         <img src="https://image.tmdb.org/t/p/w500${poster_path}" alt="${title}">
-//     </div>
-//     <div class="film__description">
-//         <p class="film__title">${original_title}</p>
-//         <ul class="film__info">
-//             <li class="film__genres">
-//                 <p>${genre_ids} &#124;</p>
-//             </li>
-//             <li class="film__year">
-//                 <p>${createYear(release_date)} &#124;</p>
-//             </li>
-//             <li class="film__rating">
-//                 <p><span class="film__value">${vote_average}</span></p>
-//             </li>
-//         </ul>
-//     </div>
-// </li>
-//     `,
-//     )
-//     .join('');
-//   gallery.innerHTML = markUp;
-// }
