@@ -15,6 +15,7 @@ const DEBOUNCE_DELAY = 300;
 const gallery = document.querySelector('.gallery');
 const input = document.querySelector('.input-box');
 const form = document.querySelector('.search-form');
+
 const modal = document.querySelector('.modal__container');
 let searchPage = 1;
 // fetch TREND FILM
@@ -26,7 +27,7 @@ async function getTrendFilm(page) {
     console.error(error);
   }
 }
-// fetch with SEARCH
+
 async function getSearchFilm(value, page) {
   try {
     const { data } = await axios.get(
@@ -62,6 +63,7 @@ async function searchMovie() {
   const searchText = input.value.trim();
   if (searchText !== '') {
     const data = await getSearchFilm(searchText, 1);
+=======
     if (data.total_results > 20) {
       searchPagination(data.total_results);
     } else {
@@ -71,6 +73,7 @@ async function searchMovie() {
       renderError();
     } else {
       gallery.innerHTML = galleryMarkup(data.results);
+      sessionStorage.setItem('current-page', JSON.stringify(data.results));
     }
   }
 }
@@ -90,6 +93,7 @@ async function firstPage() {
     const data = await getTrendFilm(1);
 
     gallery.innerHTML = galleryMarkup(data.results);
+    sessionStorage.setItem('current-page', JSON.stringify(data.results));
 
     trendPagination(data.total_results);
   } catch (error) {
@@ -115,6 +119,7 @@ function searchPagination(totalResults) {
     window.scrollTo(0, 0);
 
     gallery.innerHTML = galleryMarkup(data.results);
+    sessionStorage.setItem('current-page', JSON.stringify(data.results));
   });
 }
 
@@ -126,6 +131,7 @@ function trendPagination(totalResults) {
     window.scrollTo(0, 0);
 
     gallery.innerHTML = galleryMarkup(data.results);
+    sessionStorage.setItem('current-page', JSON.stringify(data.results));
   });
 }
 
