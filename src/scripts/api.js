@@ -1,6 +1,5 @@
 import axios from 'axios';
 import genresData from './genres.json';
-import { pagination } from './pagination';
 import galleryMarkup from '../templates/gallery-markup.hbs';
 import { debounce } from 'lodash';
 import { pagination, cleanupPagination } from './pagination';
@@ -63,7 +62,7 @@ async function searchMovie() {
   const searchText = input.value.trim();
   if (searchText !== '') {
     const data = await getSearchFilm(searchText, 1);
-=======
+
     if (data.total_results > 20) {
       searchPagination(data.total_results);
     } else {
