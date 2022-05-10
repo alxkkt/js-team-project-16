@@ -11,3 +11,7 @@ export function pagination(totalItems) {
   });
   return instance;
 }
+
+export function cleanupPagination() {
+  container.innerHTML = '';
+}
