@@ -75,8 +75,7 @@
   url('../images/bg1-mobil@1.jpg');
   background-image: -webkit-image-set(
   url('../images/bg1-mobil@1.jpg') 1x,
-  url('../images/bg1-mobil@2.jpg') 2x
-);
+  url('../images/bg1-mobil@2.jpg') 2x);
 background-repeat: no-repeat;
 background-size: cover;
 border: 1px solid rgba(0, 0, 0, 1);
@@ -104,6 +103,9 @@ border: 1px solid rgba(0, 0, 0, 1);
 }
 }
 
+.transparent{
+  background-image: none;
+}
 
 .navbar-item_link,
 .navbar-item_btn {
