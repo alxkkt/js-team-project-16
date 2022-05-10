@@ -19,7 +19,6 @@ export class Modal {
   }
   openModal(e) {
     e.preventDefault();
-
     if (e.target === this.refs.container) return;
 
     window.addEventListener('keydown', this.onEscPress.bind(this));

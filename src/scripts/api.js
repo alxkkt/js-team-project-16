@@ -10,6 +10,7 @@ const API_KEY = 'f65bce350427b2684a98ce5b213c02c8';
 const gallery = document.querySelector('.gallery');
 const input = document.querySelector('.input-box');
 const form = document.querySelector('.search-form');
+const modal = document.querySelector('.modal__container');
 // fetch TREND FILM
 async function getTrendFilm(page) {
   try {
@@ -63,6 +64,7 @@ async function firstPage() {
     const movies = data.results;
     renderGallery(movies);
     trendPagination(data.total_results);
+    console.log(data);
   } catch (error) {
     console.error(error);
   }
@@ -127,8 +129,7 @@ function renderGallery(movies) {
             </li>
         </ul>
     </div>
-</li>
-    `,
+</li> `,
     )
     .join('');
   gallery.innerHTML = markUp;
