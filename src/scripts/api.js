@@ -1,5 +1,5 @@
 import axios from 'axios';
-import genresData from './genres.json'
+import genresData from './genres.json';
 import { pagination } from './pagination';
 import galleryMarkup from '../templates/gallery-markup.hbs';
 
@@ -14,12 +14,12 @@ const input = document.querySelector('.input-box');
 const form = document.querySelector('.search-form');
 // fetch TREND FILM
 async function getTrendFilm(page) {
-    try {
-        const { data } = await axios.get(`${TREND_URL}?api_key=${API_KEY}&page=${page}`);
-        return data;
-    } catch (error) {
-        console.error(error);
-    }
+  try {
+    const { data } = await axios.get(`${TREND_URL}?api_key=${API_KEY}&page=${page}`);
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
 }
 // fetch with SEARCH
 async function getSearchFilm(value, page) {
@@ -52,12 +52,12 @@ async function onButtonClick(event) {
 
 // fetch GENRE
 async function getGenre() {
-    try {
-        const { data } = await axios.get(`genre/movie/list?api_key=${API_KEY}`);
-        return data.genres;
-    } catch (error) {
-        console.error(error);
-    }
+  try {
+    const { data } = await axios.get(`genre/movie/list?api_key=${API_KEY}`);
+    return data.genres;
+  } catch (error) {
+    console.error(error);
+  }
 }
 // render MAIN PAGE
 async function firstPage() {
@@ -75,12 +75,9 @@ async function firstPage() {
 firstPage();
 // CREATE YEAR
 function createYear(obj) {
-    return obj.slice(0, 4);
+  return obj.slice(0, 4);
 }
 // FUNCTION FOR GENRE
-
-
-
 
 // MARK UP
 

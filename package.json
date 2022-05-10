@@ -21,6 +21,7 @@
   "devDependencies": {
     "axios": "^0.27.2",
     "parcel-bundler": "^1.12.5",
+    "parcel-plugin-handlebars": "^0.4.4",
     "parcel-plugin-handlebars-precompile": "^1.0.2",
     "parcel-plugin-nuke-dist": "^1.0.1",
     "posthtml-include": "^1.6.2",
@@ -28,7 +29,6 @@
   },
   "dependencies": {
     "pagination": "^0.4.6",
-    "parcel-plugin-handlebars": "^0.4.4",
     "tui-pagination": "^3.4.1"
   }
 }
