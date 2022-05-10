@@ -27,7 +27,6 @@
     "sass": "^1.32.8"
   },
   "dependencies": {
-    "pagination": "^0.4.6",
     "tui-pagination": "^3.4.1"
   }
 }
