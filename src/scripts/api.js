@@ -146,3 +146,4 @@ export function editDate() {
     genre.textContent = transfromGenres(genresData, arr);
   });
 }
+// extra comment
