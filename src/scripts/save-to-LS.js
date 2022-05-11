@@ -14,15 +14,15 @@ const btnWatched = document.querySelector('.watched');
 const btnQueued = document.querySelector('.queued');
 const emptyLibrary = document.querySelector('.empty-library');
 
-btn.addEventListener('click', togglePages);
+btn.addEventListener('click', togglePages, { once: true });
 btnQueued.addEventListener('click', activeBtn);
 btnWatched.addEventListener('click', activeBtn);
 
 function togglePages(e) {
   e.preventDefault();
 
-  updateMarkup();
-
+  galleryRef.innerHTML = '';
+  galleryRef.insertAdjacentHTML('beforebegin', '<span class="warn">Sorry, pusto</span>');
   btnContainer.classList.remove('visually-hidden');
   searchContainer.classList.add('visually-hidden');
 
