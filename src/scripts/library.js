@@ -1,6 +1,6 @@
 import axios from 'axios';
 axios.defaults.baseURL = 'https://api.themoviedb.org/3';
-
+import { editDate } from './api';
 import galleryMarkup from '../templates/gallery-markup.hbs';
 
 const galleryRef = document.querySelector('.gallery');
@@ -27,6 +27,7 @@ function togglePages(e) {
   const watchedParse = JSON.parse(localStorage.getItem(WATCHED));
 
   updateMarkup(watchedParse);
+  editDate();
 
   btnContainer.classList.remove('visually-hidden');
   searchContainer.classList.add('visually-hidden');
@@ -45,10 +46,12 @@ function onBtnClick(e) {
 
   if (e.target.textContent === WATCHED) {
     updateMarkup(watchedParse);
+    editDate();
     e.target.classList.add('active');
     btnQueued.classList.remove('active');
   } else {
     updateMarkup(queueParse);
+    editDate();
     e.target.classList.add('active');
     btnWatched.classList.remove('active');
   }
