@@ -61,7 +61,10 @@ function createModalContent(e) {
       document.querySelector('.close-button').addEventListener('click', closeModal);
 
       document.querySelector('#watched').addEventListener('click', e => {
-        addToStorage(WATCHED, film);
+        const films = JSON.parse(localStorage.getItem('watched'));
+        films.push(film);
+
+        addToStorage(WATCHED, films);
         e.currentTarget.textContent = 'Film added to watched';
         console.log(JSON.parse(localStorage.getItem(WATCHED)));
       });

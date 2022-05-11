@@ -142,3 +142,6 @@ function getGenreName(genreId) {
 }
 
 // getGenreName();
+function renderError() {
+  gallery.innerHTML = `<div class="search-error">Sorry, could not find a film </div>`;
+}
