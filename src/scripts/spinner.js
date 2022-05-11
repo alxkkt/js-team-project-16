@@ -1,14 +1,13 @@
-// import { throttle } from "lodash";
 export default class Spinner {
-    constructor(spinner) {
-        this.spinner = document.querySelector('.spinner-backdrop')
-    };
+  constructor(spinner) {
+    this.spinner = document.querySelector('.spinner-backdrop');
+  }
 
-    addSpinner() {
-        this.spinner.classList.remove('visually-hidden')
-    };
+  addSpinner() {
+    this.spinner.classList.remove('visually-hidden');
+  }
 
-    closeSpinner() {
-        this.spinner.classList.add('visually-hidden');
-    };
-};
+  closeSpinner() {
+    this.spinner.classList.add('visually-hidden');
+  }
+}

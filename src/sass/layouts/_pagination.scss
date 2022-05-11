@@ -55,19 +55,22 @@
   }
 }
 
-// .tui-pagination .tui-is-selected, .tui-pagination strong {
-//     color: #fff;
-//     background: #4b96e6;
-//     border-color: #4b96e6;
-//     cursor: default;
-// }
+.tui-page-btn:hover {
+  background-color: var(--accent-color);
+  color: #fff;
+  border-radius: 5px;
+
+  cursor: pointer;
+}
+
+.tui-next:hover {
+  @media (prefers-color-scheme: dark) {
+    color: #fff;
+  }
+}
 
 .tui-pagination .tui-is-selected:hover {
   background-color: #4b96e6;
-}
-
-.tui-pagination .tui-page-btn:hover {
-  background-color: #f4f4f4;
 }
 
 .tui-pagination .tui-is-selected,
@@ -97,7 +100,6 @@
 .tui-pagination .tui-prev-is-ellip,
 .tui-pagination .tui-next-is-ellip {
   overflow: hidden;
-  color: b;
   height: 26px;
   padding: 0;
   font-size: 0;
@@ -160,8 +162,11 @@
 }
 
 .tui-pagination .tui-is-disabled:hover {
-  background: #fff;
+  
   cursor: default;
+  @media (prefers-color-scheme: dark) {
+    background: var(--dark-theme-bg-color);
+  }
 }
 
 .tui-pagination .tui-is-disabled .tui-ico-prev {
@@ -210,25 +215,28 @@
 }
 
 .tui-pagination .tui-is-disabled:hover {
-  background: #fff;
   cursor: default;
   border-radius: 5px;
 }
 
-.tui-pagination .tui-page-btn:hover {
-  // background-color: #f4f4f4;
-  border-radius: 5px;
+// .tui-pagination .tui-page-btn:hover {
+//   // background-color: #f4f4f4;
+//   border-radius: 5px;
 
-  @media (prefers-color-scheme: dark) {
-    background-color: var(--accent-color);
-  }
-}
+//   @media (prefers-color-scheme: dark) {
+//     background-color: var(--accent-color);
+//   }
+// }
 
 // for function renderError()
 .search-error {
   color: gray;
-  font-size: 54px;
+  font-size: 36px;
+  color: var(--accent-color);
   text-align: center;
-  margin-left: 150px;
   margin-top: 70px;
+  @include tablet {
+    margin: 0 auto;
+    padding-left: 32px;
+  }
 }
