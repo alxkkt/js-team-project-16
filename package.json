@@ -28,6 +28,9 @@
     "sass": "^1.32.8"
   },
   "dependencies": {
+
+    "handlebars": "^4.7.7",
+    "lodash": "^4.17.21",
     "pagination": "^0.4.6",
     "tui-pagination": "^3.4.1"
   }

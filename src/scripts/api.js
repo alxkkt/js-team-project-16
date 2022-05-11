@@ -1,17 +1,22 @@
 import axios from 'axios';
 import genresData from './genres.json';
-import { pagination } from './pagination';
 import galleryMarkup from '../templates/gallery-markup.hbs';
+import { debounce } from 'lodash';
+import { pagination, cleanupPagination } from './pagination';
 
 axios.defaults.baseURL = 'https://api.themoviedb.org/3';
 
 const TREND_URL = `/trending/movie/week`;
 const SEARCH_URL = `/search/movie`;
 const API_KEY = 'f65bce350427b2684a98ce5b213c02c8';
+const DEBOUNCE_DELAY = 300;
 
 const gallery = document.querySelector('.gallery');
 const input = document.querySelector('.input-box');
 const form = document.querySelector('.search-form');
+
+const modal = document.querySelector('.modal__container');
+let searchPage = 1;
 // fetch TREND FILM
 async function getTrendFilm(page) {
   try {
@@ -21,32 +26,54 @@ async function getTrendFilm(page) {
     console.error(error);
   }
 }
-// fetch with SEARCH
+
 async function getSearchFilm(value, page) {
   try {
     const { data } = await axios.get(
       `${SEARCH_URL}?api_key=${API_KEY}&query=${value}&page=${page}`,
     );
-
     return data;
   } catch (error) {
     console.error(error);
   }
 }
 
-//search submit fun
+//search submit
 form.addEventListener('submit', onButtonClick);
+//search keydown
+form.addEventListener('keydown', ({ key }) => {
+  if (key === 'Enter') {
+    searchMovie();
+  }
+});
+
+input.addEventListener('input', debounce(onInputMovie, DEBOUNCE_DELAY));
+
+function onInputMovie() {
+  searchMovie();
+}
 
 async function onButtonClick(event) {
   event.preventDefault();
+  searchMovie();
+}
+
+async function searchMovie() {
   const searchText = input.value.trim();
   if (searchText !== '') {
     const data = await getSearchFilm(searchText, 1);
-    console.log('serch date', data);
 
-    gallery.innerHTML = galleryMarkup(data.results);
-  } else if (data.results.length > 20) {
-    searchPagination(totalResults);
+    if (data.total_results > 20) {
+      searchPagination(data.total_results);
+    } else {
+      cleanupPagination();
+    }
+    if (data.total_results === 0) {
+      renderError();
+    } else {
+      gallery.innerHTML = galleryMarkup(data.results);
+      sessionStorage.setItem('current-page', JSON.stringify(data.results));
+    }
   }
 }
 
@@ -65,6 +92,7 @@ async function firstPage() {
     const data = await getTrendFilm(1);
 
     gallery.innerHTML = galleryMarkup(data.results);
+    sessionStorage.setItem('current-page', JSON.stringify(data.results));
 
     trendPagination(data.total_results);
   } catch (error) {
@@ -85,10 +113,12 @@ function createYear(obj) {
 function searchPagination(totalResults) {
   const totalPagination = pagination(totalResults);
   totalPagination.on('beforeMove', async event => {
-    const data = await getSearchFilm(value, event.page);
+    const searchText = input.value.trim();
+    const data = await getSearchFilm(searchText, event.page);
     window.scrollTo(0, 0);
 
     gallery.innerHTML = galleryMarkup(data.results);
+    sessionStorage.setItem('current-page', JSON.stringify(data.results));
   });
 }
 
@@ -100,6 +130,7 @@ function trendPagination(totalResults) {
     window.scrollTo(0, 0);
 
     gallery.innerHTML = galleryMarkup(data.results);
+    sessionStorage.setItem('current-page', JSON.stringify(data.results));
   });
 }
 
