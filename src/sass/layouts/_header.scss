@@ -91,7 +91,6 @@ background-size: cover;
 border: 1px solid rgba(0, 0, 0, 1); 
 }
 @include desktop {
-  color: #ffffff;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
   url('../images/bg1-desktop@1.jpg');
 background-image: -webkit-image-set(
@@ -110,6 +109,7 @@ border: 1px solid rgba(0, 0, 0, 1);
 
 .navbar-item_link,
 .navbar-item_btn {
+  color: #ffffff;
     cursor: pointer;
   text-transform: uppercase;
   &:hover {
@@ -117,11 +117,6 @@ border: 1px solid rgba(0, 0, 0, 1);
 
     transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
-}
-.navbar-item_link:visited,
-.navbar-item_btn:visited {
-  color: #ffffff;
-  text-decoration: none;
 }
 
 .logo_header {
