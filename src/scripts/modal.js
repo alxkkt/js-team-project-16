@@ -1,4 +1,6 @@
 import { Modal } from './modal-plugin';
+import genres from './genres.json';
+import { helperFn } from './genres';
 import modalTemplate from '../templates/gallery-modal.hbs';
 
 const footerModal = new Modal('.footer-modal-container', '[data-footer-modal]');
@@ -15,27 +17,12 @@ function openModal(e) {
   if (e.target === gallery) return;
 
   toggleClases();
-
-  const selectedCard = e.composedPath().find(({ tagName }) => tagName === 'LI');
-  const currentId = Number(selectedCard.dataset.id);
-
-  const films = JSON.parse(sessionStorage.getItem('current-page'));
-  for (const film of films) {
-    if (film.id === currentId) {
-      modalContainer.insertAdjacentHTML('afterbegin', modalTemplate(film));
-      document.querySelector('.close-button').addEventListener('click', closeModal);
-      break;
-    }
-  }
-  // modalContainer.querySelector('#watched').addEventListener('click', addToWatched);
-  // modalContainer.querySelector('#queue').addEventListener('click', addToQueue);
-  // function addToWatched() {}
-  // function addToQueue() {}
+  createModalContent(e);
 
   window.addEventListener('keydown', onEscPress);
 }
 
-function closeModal() {
+export function closeModal() {
   toggleClases();
 
   window.removeEventListener('keydown', onEscPress);
@@ -56,4 +43,20 @@ function onEscPress(e) {
 function toggleClases() {
   backdrop.classList.toggle('visually-hidden');
   document.body.classList.toggle('footer-modal-open');
+}
+
+function createModalContent(e) {
+  const selectedCard = e.composedPath().find(({ tagName }) => tagName === 'LI');
+  const currentId = Number(selectedCard.dataset.id);
+
+  const films = JSON.parse(sessionStorage.getItem('current-page'));
+  for (const film of films) {
+    if (film.id === currentId) {
+      modalContainer.insertAdjacentHTML('afterbegin', modalTemplate(film));
+      document.querySelector('.close-button').addEventListener('click', closeModal);
+
+      modalContainer.querySelector('#genres').textContent = transfromGenres(genres, film.genre_ids);
+      break;
+    }
+  }
 }

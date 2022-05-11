@@ -1,13 +1,13 @@
 {{#each this}}
 <li class="film" data-id="{{id}}">
     <div class="film__item">
-        <img src="https://image.tmdb.org/t/p/w500{{poster_path}}" alt="{{title}}">
+        <img src="https://image.tmdb.org/t/p/w500{{poster_path}}" width="310" height="460" alt="{{title}}" loading="lazy" >
     </div>
     <div class="film__description">
         <p class="film__title">{{original_title}}</p>
         <div class="film__info">
             <p class="film__genres">
-                <p>{{genre_ids}} &#124;</p>
+                <p id="gallery-genres">{{genre_ids}} &#124;</p>
             </p>
             <p class="film__year">
                 <p>{{release_date}} &#124;</p>

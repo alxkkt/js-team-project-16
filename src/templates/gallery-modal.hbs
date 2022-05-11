@@ -1,5 +1,5 @@
 <div style="display: flex;">
-    <img class="modal__img" src="https://image.tmdb.org/t/p/w500{{poster_path}}" alt="{{title}}" />
+    <img class="modal__img" src="https://image.tmdb.org/t/p/w500{{poster_path}}" width="240" height="360" alt="{{title}}" />
     <div class="modal__info">
       <div class="modal__information">
         <h2 class="modal__title">{{title}}</h2>
@@ -18,7 +18,7 @@
           </li>
           <li class="modal__item">
             <p class="modal__criteria">Genre</p>
-            <p>{{genre_ids}}</p>
+            <p id="genres"></p>
           </li>
         </ul>
         <h3 class="modal__about__title">ABOUT</h3>
