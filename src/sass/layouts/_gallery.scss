@@ -63,9 +63,9 @@
     }
     &__genres {
         line-height: 1.16;
-        margin-right: 4px;
     }
     &__year {
+        margin-left: 5px;
         margin-right: 5px;
     }
     &__value {
@@ -74,4 +74,7 @@
         padding: 2px 5px;
         border-radius: 2px;
     }
+}
+#date {
+    padding-right: 10px;
 }

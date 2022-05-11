@@ -4,6 +4,7 @@ import galleryMarkup from '../templates/gallery-markup.hbs';
 import { debounce } from 'lodash';
 import { pagination, cleanupPagination } from './pagination';
 import Spinner from './spinner';
+import { transfromGenres } from './genres';
 
 axios.defaults.baseURL = 'https://api.themoviedb.org/3';
 
@@ -20,11 +21,11 @@ const form = document.querySelector('.search-form');
 
 input.addEventListener('input', debounce(onInputMovie, DEBOUNCE_DELAY));
 form.addEventListener('submit', onButtonClick);
-form.addEventListener('keydown', ({ key }) => {
-  if (key === 'Enter') {
-    searchMovie();
-  }
-});
+// form.addEventListener('keydown', ({ key }) => {
+//   if (key === 'Enter') {
+//     searchMovie();
+//   }
+// });
 
 // fetch TREND FILM
 async function getTrendFilm(page) {
@@ -124,5 +125,24 @@ function renderError() {
 
 function createMarkup(data) {
   gallery.innerHTML = galleryMarkup(data.results);
+
+  editDate();
+
   sessionStorage.setItem('current-page', JSON.stringify(data.results));
+}
+
+export function editDate() {
+  const dates = gallery.querySelectorAll('#date');
+  for (const date of dates) {
+    let currentDate = date.textContent;
+    date.textContent = currentDate.slice(0, 4);
+  }
+
+  const genres = document.querySelectorAll('#gallery-genres');
+  genres.forEach(genre => {
+    let currentGenres = genre.textContent.slice(0, -2).split(',');
+
+    const arr = currentGenres.map(id => Number(id));
+    genre.textContent = transfromGenres(genresData, arr);
+  });
 }
