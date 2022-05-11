@@ -53,8 +53,13 @@ function onBtnClick(e) {
     btnWatched.classList.remove('active');
   }
 }
+
 function updateMarkup(storageType) {
-  galleryRef.innerHTML = galleryMarkup(storageType);
+  if (storageType.length === 0) {
+    emptyLibrary();
+  } else {
+    galleryRef.innerHTML = galleryMarkup(storageType);
+  }
 }
 
 //--------- check LS
@@ -64,4 +69,9 @@ if (localStorage.getItem('watched') === null) {
 
 if (localStorage.getItem('queue') === null) {
   localStorage.setItem('queue', JSON.stringify([]));
+}
+
+function emptyLibrary() {
+  const markup = '<div class="warn" >Your list is empty!</div>';
+  galleryRef.innerHTML = markup;
 }
