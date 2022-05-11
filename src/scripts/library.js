@@ -22,11 +22,10 @@ const btnsContainer = document.querySelector('.btns-container');
 btn.addEventListener('click', togglePages, { once: true });
 btnsContainer.addEventListener('click', onBtnClick);
 
-let watchedParse = JSON.parse(localStorage.getItem(WATCHED));
-let queueParse = JSON.parse(localStorage.getItem(QUEUE));
-
 function togglePages(e) {
   e.preventDefault();
+
+  const watchedParse = JSON.parse(localStorage.getItem(WATCHED));
 
   updateMarkup(watchedParse);
 
@@ -41,6 +40,9 @@ function togglePages(e) {
 
 function onBtnClick(e) {
   if (e.target === btnsContainer) return;
+
+  const watchedParse = JSON.parse(localStorage.getItem(WATCHED));
+  const queueParse = JSON.parse(localStorage.getItem(QUEUE));
 
   if (e.target.textContent === WATCHED) {
     updateMarkup(watchedParse);
