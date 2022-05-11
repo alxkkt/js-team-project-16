@@ -1,6 +1,7 @@
 import axios from 'axios';
 axios.defaults.baseURL = 'https://api.themoviedb.org/3';
 
+import galleryMarkup from '../templates/gallery-markup.hbs';
 import { renderGallery, createYear, API_KEY } from './api';
 
 const galleryRef = document.querySelector('.gallery');
@@ -21,8 +22,11 @@ btnWatched.addEventListener('click', activeBtn);
 function togglePages(e) {
   e.preventDefault();
 
-  galleryRef.innerHTML = '';
-  galleryRef.insertAdjacentHTML('beforebegin', '<span class="warn">Sorry, pusto</span>');
+  galleryRef.innerHTML = galleryMarkup(watchedParse);
+  // updateMarkup();
+
+  document.querySelector('.modal__buttons').style.display = 'none';
+
   btnContainer.classList.remove('visually-hidden');
   searchContainer.classList.add('visually-hidden');
 
@@ -33,10 +37,10 @@ function togglePages(e) {
 }
 
 function updateMarkup() {
-  let markup = '<div class=warn>ThereIsNoSpoon</div>';
+  let markup = '<div class="warn">ThereIsNoSpoon</div>';
 
   galleryRef.innerHTML = '';
-  emptyLibrary.insertAdjacentHTML('beforeend', markup);
+  galleryRef.insertAdjacentHTML('beforebegin', markup);
 }
 
 function activeBtn() {
@@ -59,42 +63,17 @@ if (localStorage.getItem('queue') === null) {
 
 const watchedParse = JSON.parse(localStorage.getItem('watched'));
 const queueParse = JSON.parse(localStorage.getItem('queue'));
+
+console.log(watchedParse);
+
+galleryRef.innerHTML = galleryMarkup(watchedParse);
 //-------------
 
 //-----//-----
-let filmId = '453395';
-let filmId2 = '453396';
+// let filmId = '453395';
+
 // let filmId = '';
-localStorage.setItem('watched', JSON.stringify([filmId]));
-localStorage.setItem('watched', JSON.stringify([filmId2]));
 
-let serializedState = localStorage.getItem(key);
+// localStorage.setItem('watched', JSON.stringify([filmId]));
 
-// return (serializedState = JSON.parse(serializedState) || undefined);
-
-// watchedParse.map(Id => {
-//   fetchFilmListById(Id);
-// });
-
-async function fetchFilmListById(filmId) {
-  try {
-    const { data } = await axios.get(`/movie/${filmId}?api_key=${API_KEY}`);
-    return data;
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-function renderWatchedList() {
-  console.log(watchedParse.length);
-  if (watchedParse.length === 0) {
-    refs.emptyLib.insertAdjacentHTML('afterbegin', emptyLibrary());
-  } else {
-    watchedParse.map(Id => {
-      return fetchFilmListById(Id);
-    });
-  }
-}
-
-renderWatchedList();
 // { id, img, title, filmGenres, releaseYear, vote_average }
