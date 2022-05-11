@@ -12,7 +12,7 @@ const navbarBtn = document.querySelector('.navbar-item_btn');
 const pagination = document.querySelector('.pagination-section');
 const btnWatched = document.querySelector('.watched');
 const btnQueued = document.querySelector('.queued');
-
+// asd
 const WATCHED = 'watched';
 const QUEUE = 'queue';
 const btnsContainer = document.querySelector('.btns-container');
