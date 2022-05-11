@@ -31,23 +31,25 @@
     "handlebars": "^4.7.7",
     "lodash": "^4.17.21",
     "pagination": "^0.4.6",
-    "parcel-plugin-custom-dist-structure": "^1.1.18",
     "tui-pagination": "^3.4.1"
   },
   "customDistStructure": {
-  "config": {
-    ".js": "js",
-    "images": [
-      ".jpg",
-      ".png"
-    ],
-    ".html": "html",
-    ".css": "css",
-    ".fileExtension": "folder/in/dist",
-    "folder/in/dist": [ ".file", ".extensions" ]
-  },
-  "options": {
-    "development": true
+    "config": {
+      ".js": "js",
+      "images": [
+        ".jpg",
+        ".png"
+      ],
+      ".html": "html",
+      ".css": "css",
+      ".fileExtension": "folder/in/dist",
+      "folder/in/dist": [
+        ".file",
+        ".extensions"
+      ]
+    },
+    "options": {
+      "development": true
+    }
   }
-}
 }
