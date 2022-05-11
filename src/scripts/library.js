@@ -2,7 +2,6 @@ import axios from 'axios';
 axios.defaults.baseURL = 'https://api.themoviedb.org/3';
 
 import galleryMarkup from '../templates/gallery-markup.hbs';
-import { renderGallery, createYear, API_KEY } from './api';
 
 const galleryRef = document.querySelector('.gallery');
 const btn = document.querySelector('.navbar-item_btn');

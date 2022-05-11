@@ -91,6 +91,7 @@ background-size: cover;
 border: 1px solid rgba(0, 0, 0, 1); 
 }
 @include desktop {
+  color: #ffffff;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
   url('../images/bg1-desktop@1.jpg');
 background-image: -webkit-image-set(

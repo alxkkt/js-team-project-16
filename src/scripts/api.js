@@ -15,7 +15,14 @@ const gallery = document.querySelector('.gallery');
 const input = document.querySelector('.input-box');
 const form = document.querySelector('.search-form');
 
-let searchPage = 1;
+input.addEventListener('input', debounce(onInputMovie, DEBOUNCE_DELAY));
+form.addEventListener('submit', onButtonClick);
+form.addEventListener('keydown', ({ key }) => {
+  if (key === 'Enter') {
+    searchMovie();
+  }
+});
+
 // fetch TREND FILM
 async function getTrendFilm(page) {
   try {
@@ -38,15 +45,6 @@ async function getSearchFilm(value, page) {
 }
 
 //search submit
-form.addEventListener('submit', onButtonClick);
-//search keydown
-form.addEventListener('keydown', ({ key }) => {
-  if (key === 'Enter') {
-    searchMovie();
-  }
-});
-
-input.addEventListener('input', debounce(onInputMovie, DEBOUNCE_DELAY));
 
 function onInputMovie() {
   searchMovie();
@@ -70,28 +68,17 @@ async function searchMovie() {
     if (data.total_results === 0) {
       renderError();
     } else {
-      gallery.innerHTML = galleryMarkup(data.results);
-      sessionStorage.setItem('current-page', JSON.stringify(data.results));
+      createMarkup(data);
     }
   }
 }
 
-// fetch GENRE
-async function getGenre() {
-  try {
-    const { data } = await axios.get(`genre/movie/list?api_key=${API_KEY}`);
-    return data.genres;
-  } catch (error) {
-    console.error(error);
-  }
-}
 // render MAIN PAGE
 async function firstPage() {
   try {
     const data = await getTrendFilm(1);
 
-    gallery.innerHTML = galleryMarkup(data.results);
-    sessionStorage.setItem('current-page', JSON.stringify(data.results));
+    createMarkup(data);
 
     trendPagination(data.total_results);
   } catch (error) {
@@ -100,13 +87,6 @@ async function firstPage() {
 }
 
 firstPage();
-// CREATE YEAR
-function createYear(obj) {
-  return obj.slice(0, 4);
-}
-// FUNCTION FOR GENRE
-
-// MARK UP
 
 //SEARCH PAGINATION
 function searchPagination(totalResults) {
@@ -116,8 +96,7 @@ function searchPagination(totalResults) {
     const data = await getSearchFilm(searchText, event.page);
     window.scrollTo(0, 0);
 
-    gallery.innerHTML = galleryMarkup(data.results);
-    sessionStorage.setItem('current-page', JSON.stringify(data.results));
+    createMarkup(data);
   });
 }
 
@@ -128,20 +107,15 @@ function trendPagination(totalResults) {
     const data = await getTrendFilm(event.page);
     window.scrollTo(0, 0);
 
-    gallery.innerHTML = galleryMarkup(data.results);
-    sessionStorage.setItem('current-page', JSON.stringify(data.results));
+    createMarkup(data);
   });
 }
 
-function getGenreName(genreId) {
-  const genreNames = genreId.map(id => {
-    const { name } = genres.find(item => item.id === id) ? genres.find(item => item.id === id) : '';
-    return name;
-  });
-  return genreNames;
-}
-
-// getGenreName();
 function renderError() {
   gallery.innerHTML = `<div class="search-error">Sorry, could not find a film </div>`;
+}
+
+function createMarkup(data) {
+  gallery.innerHTML = galleryMarkup(data.results);
+  sessionStorage.setItem('current-page', JSON.stringify(data.results));
 }
