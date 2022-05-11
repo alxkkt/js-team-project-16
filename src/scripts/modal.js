@@ -18,7 +18,7 @@ gallery.addEventListener('click', openModal);
 backdrop.addEventListener('click', onBackdropClick);
 
 function openModal(e) {
-  if (e.target === gallery && !e.currentTarget.children.length) return;
+  if (e.target === gallery) return;
 
   toggleClases();
   createModalContent(e);
@@ -50,6 +50,8 @@ function toggleClases() {
 }
 
 function createModalContent(e) {
+  // if (e.target !== gallery) return;
+
   const selectedCard = e.composedPath().find(({ tagName }) => tagName === 'LI');
   const currentId = Number(selectedCard.dataset.id);
 
@@ -60,14 +62,28 @@ function createModalContent(e) {
       modalContainer.insertAdjacentHTML('afterbegin', modalTemplate(film));
       document.querySelector('.close-button').addEventListener('click', closeModal);
 
-      document.querySelector('#watched').addEventListener('click', e => {
-        const films = JSON.parse(localStorage.getItem('watched'));
-        films.push(film);
+      document.querySelector('#watched').addEventListener(
+        'click',
+        e => {
+          const films = JSON.parse(localStorage.getItem(WATCHED));
+          films.push(film);
 
-        addToStorage(WATCHED, films);
-        e.currentTarget.textContent = 'Film added to watched';
-        console.log(JSON.parse(localStorage.getItem(WATCHED)));
-      });
+          addToStorage(WATCHED, films);
+          e.currentTarget.textContent = 'Film added to watched';
+        },
+        { once: true },
+      );
+      document.querySelector('#queue').addEventListener(
+        'click',
+        e => {
+          const films = JSON.parse(localStorage.getItem(QUEUE));
+          films.push(film);
+
+          addToStorage(QUEUE, films);
+          e.currentTarget.textContent = 'Film added to queue';
+        },
+        { once: true },
+      );
 
       modalContainer.querySelector('#genres').textContent = transfromGenres(genres, film.genre_ids);
       break;

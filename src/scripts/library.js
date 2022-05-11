@@ -17,19 +17,18 @@ const btnQueued = document.querySelector('.queued');
 const WATCHED = 'watched';
 const QUEUE = 'queue';
 // btns-container
-const emptyLibrary = document.querySelector('.empty-library');
+const btnsContainer = document.querySelector('.btns-container');
 
 btn.addEventListener('click', togglePages, { once: true });
-btnQueued.addEventListener('click', activeBtn);
-btnWatched.addEventListener('click', activeBtn);
+btnsContainer.addEventListener('click', onBtnClick);
+
+let watchedParse = JSON.parse(localStorage.getItem(WATCHED));
+let queueParse = JSON.parse(localStorage.getItem(QUEUE));
 
 function togglePages(e) {
   e.preventDefault();
 
-  galleryRef.innerHTML = galleryMarkup(watchedParse);
-  // updateMarkup();
-
-  document.querySelector('.modal__buttons').style.display = 'none';
+  updateMarkup(watchedParse);
 
   btnContainer.classList.remove('visually-hidden');
   searchContainer.classList.add('visually-hidden');
@@ -40,20 +39,21 @@ function togglePages(e) {
   pagination.classList.add('visually-hidden');
 }
 
-function updateMarkup() {
-  let markup = '<div class="warn">ThereIsNoSpoon</div>';
+function onBtnClick(e) {
+  if (e.target === btnsContainer) return;
 
-  galleryRef.innerHTML = '';
-  galleryRef.insertAdjacentHTML('beforebegin', markup);
+  if (e.target.textContent === WATCHED) {
+    updateMarkup(watchedParse);
+    e.target.classList.add('active');
+    btnQueued.classList.remove('active');
+  } else {
+    updateMarkup(queueParse);
+    e.target.classList.add('active');
+    btnWatched.classList.remove('active');
+  }
 }
-
-function activeBtn() {
-  if ((btnWatched.contains = 'active')) {
-    btnQueued.classList.toggle('active');
-  }
-  if ((btnQueued.contains = 'active')) {
-    btnWatched.classList.toggle('active');
-  }
+function updateMarkup(storageType) {
+  galleryRef.innerHTML = galleryMarkup(storageType);
 }
 
 //--------- check LS
@@ -64,20 +64,3 @@ if (localStorage.getItem('watched') === null) {
 if (localStorage.getItem('queue') === null) {
   localStorage.setItem('queue', JSON.stringify([]));
 }
-
-const watchedParse = JSON.parse(localStorage.getItem('watched'));
-const queueParse = JSON.parse(localStorage.getItem('queue'));
-
-console.log(watchedParse);
-
-galleryRef.innerHTML = galleryMarkup(watchedParse);
-//-------------
-
-//-----//-----
-// let filmId = '453395';
-
-// let filmId = '';
-
-// localStorage.setItem('watched', JSON.stringify([filmId]));
-
-// { id, img, title, filmGenres, releaseYear, vote_average }
