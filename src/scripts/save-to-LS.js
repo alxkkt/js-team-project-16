@@ -10,14 +10,15 @@ const btnQueued = document.querySelector('.queued');
 
 // btns-container
 
-btn.addEventListener('click', togglePages);
+btn.addEventListener('click', togglePages, { once: true });
 btnQueued.addEventListener('click', activeBtn);
 btnWatched.addEventListener('click', activeBtn);
 
 function togglePages(e) {
   e.preventDefault();
 
-  galleryRef.innerHTML = '<div class=warn>ThereIsNoSpoon</div>';
+  galleryRef.innerHTML = '';
+  galleryRef.insertAdjacentHTML('beforebegin', '<span>Sorry, pusto</span>');
   btnContainer.classList.remove('visually-hidden');
   searchContainer.classList.add('visually-hidden');
 
