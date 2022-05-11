@@ -34,7 +34,7 @@ function togglePages(e) {
   navbarLink.classList.remove('current');
   navbarBtn.classList.add('current');
 
-  pagination.classList.remove('visually-hidden');
+  pagination.classList.add('visually-hidden');
 }
 
 function onBtnClick(e) {
@@ -57,10 +57,8 @@ function onBtnClick(e) {
 function updateMarkup(storageType) {
   if (storageType.length === 0) {
     emptyLibrary();
-    pagination.classList.add('visually-hidden');
   } else {
     galleryRef.innerHTML = galleryMarkup(storageType);
-    pagination.classList.remove('visually-hidden');
   }
 }
 
