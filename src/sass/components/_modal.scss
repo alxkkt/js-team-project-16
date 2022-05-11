@@ -48,6 +48,12 @@
 }
 }
 
+.modal__inside {
+  @include tablet {
+    display: flex;
+  }
+}
+
 .modal__img {
   max-width: 240px;
   height: 357px;
