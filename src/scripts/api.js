@@ -15,7 +15,6 @@ const gallery = document.querySelector('.gallery');
 const input = document.querySelector('.input-box');
 const form = document.querySelector('.search-form');
 
-const modal = document.querySelector('.modal__container');
 let searchPage = 1;
 // fetch TREND FILM
 async function getTrendFilm(page) {

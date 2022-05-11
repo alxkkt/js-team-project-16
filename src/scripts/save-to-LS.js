@@ -8,6 +8,8 @@ const pagination = document.querySelector('.pagination-section');
 const btnWatched = document.querySelector('.watched');
 const btnQueued = document.querySelector('.queued');
 
+const WATCHED = 'watched';
+const QUEUE = 'queue';
 // btns-container
 
 btn.addEventListener('click', togglePages, { once: true });

@@ -63,6 +63,7 @@ function createModalContent(e) {
       document.querySelector('#watched').addEventListener('click', e => {
         addToStorage(WATCHED, film);
         e.currentTarget.textContent = 'Film added to watched';
+        console.log(JSON.parse(localStorage.getItem(WATCHED)));
       });
 
       modalContainer.querySelector('#genres').textContent = transfromGenres(genres, film.genre_ids);
