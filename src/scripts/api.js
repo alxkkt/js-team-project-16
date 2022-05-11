@@ -3,6 +3,7 @@ import genresData from './genres.json';
 import galleryMarkup from '../templates/gallery-markup.hbs';
 import { debounce } from 'lodash';
 import { pagination, cleanupPagination } from './pagination';
+import Spinner from './spinner';
 
 axios.defaults.baseURL = 'https://api.themoviedb.org/3';
 
@@ -10,6 +11,8 @@ const TREND_URL = `/trending/movie/week`;
 const SEARCH_URL = `/search/movie`;
 const API_KEY = 'f65bce350427b2684a98ce5b213c02c8';
 const DEBOUNCE_DELAY = 300;
+
+const spinnerProcess = new Spinner('.spinner');
 
 const gallery = document.querySelector('.gallery');
 const input = document.querySelector('.input-box');
@@ -19,8 +22,10 @@ const modal = document.querySelector('.modal__container');
 let searchPage = 1;
 // fetch TREND FILM
 async function getTrendFilm(page) {
+  spinnerProcess.addSpinner();
   try {
     const { data } = await axios.get(`${TREND_URL}?api_key=${API_KEY}&page=${page}`);
+    spinnerProcess.closeSpinner();
     return data;
   } catch (error) {
     console.error(error);
@@ -28,10 +33,12 @@ async function getTrendFilm(page) {
 }
 
 async function getSearchFilm(value, page) {
+  spinnerProcess.addSpinner();
   try {
     const { data } = await axios.get(
       `${SEARCH_URL}?api_key=${API_KEY}&query=${value}&page=${page}`,
     );
+    spinnerProcess.closeSpinner();
     return data;
   } catch (error) {
     console.error(error);
