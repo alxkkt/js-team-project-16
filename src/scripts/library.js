@@ -15,7 +15,6 @@ const btnQueued = document.querySelector('.queued');
 
 const WATCHED = 'watched';
 const QUEUE = 'queue';
-// btns-container
 const btnsContainer = document.querySelector('.btns-container');
 
 btn.addEventListener('click', togglePages, { once: true });
