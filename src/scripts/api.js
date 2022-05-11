@@ -21,11 +21,11 @@ const form = document.querySelector('.search-form');
 
 input.addEventListener('input', debounce(onInputMovie, DEBOUNCE_DELAY));
 form.addEventListener('submit', onButtonClick);
-// form.addEventListener('keydown', ({ key }) => {
-//   if (key === 'Enter') {
-//     searchMovie();
-//   }
-// });
+form.addEventListener('keydown', ({ key }) => {
+  if (key === 'Enter') {
+    searchMovie();
+  }
+});
 
 // fetch TREND FILM
 async function getTrendFilm(page) {
