@@ -53,35 +53,45 @@ function createModalContent(e) {
   const selectedCard = e.composedPath().find(({ tagName }) => tagName === 'LI');
   const currentId = Number(selectedCard.dataset.id);
 
-  const films = JSON.parse(sessionStorage.getItem('current-page'));
+  const currentFilms = JSON.parse(sessionStorage.getItem('current-page'));
+  const queuedFilms = JSON.parse(localStorage.getItem(QUEUE));
+  const watchedFilms = JSON.parse(localStorage.getItem(WATCHED));
 
-  for (const film of films) {
+  for (const film of currentFilms) {
     if (film.id === currentId) {
       modalContainer.insertAdjacentHTML('afterbegin', modalTemplate(film));
       document.querySelector('.close-button').addEventListener('click', closeModal);
 
-      document.querySelector('#watched').addEventListener(
-        'click',
-        e => {
-          const films = JSON.parse(localStorage.getItem(WATCHED));
-          films.push(film);
+      document.querySelector('#watched').addEventListener('click', e => {
+        for (const watchedFilm of watchedFilms) {
+          if (film.id === watchedFilm.id) {
+            e.currentTarget.textContent = 'Already in Watched List';
+            e.currentTarget.disabled = true;
+            e.currentTarget.style.background = 'var(--accent-color)';
+            e.currentTarget.style.color = '#fff';
+            return;
+          }
+        }
+        watchedFilms.push(film);
+        addToStorage(WATCHED, watchedFilms);
 
-          addToStorage(WATCHED, films);
-          e.currentTarget.textContent = 'Film added to watched';
-        },
-        { once: true },
-      );
-      document.querySelector('#queue').addEventListener(
-        'click',
-        e => {
-          const films = JSON.parse(localStorage.getItem(QUEUE));
-          films.push(film);
+        e.currentTarget.textContent = 'Film added to watched';
+      });
+      document.querySelector('#queue').addEventListener('click', e => {
+        for (const queuedFilm of queuedFilms) {
+          if (film.id === queuedFilm.id) {
+            e.currentTarget.textContent = 'Already in Queued List';
+            e.currentTarget.disabled = true;
+            e.currentTarget.style.background = 'var(--accent-color)';
+            e.currentTarget.style.color = '#fff';
+            return;
+          }
+        }
+        queuedFilms.push(film);
+        addToStorage(QUEUE, queuedFilms);
 
-          addToStorage(QUEUE, films);
-          e.currentTarget.textContent = 'Film added to queue';
-        },
-        { once: true },
-      );
+        e.currentTarget.textContent = 'Film added to queue';
+      });
 
       modalContainer.querySelector('#genres').textContent = transfromGenres(genres, film.genre_ids);
       break;
