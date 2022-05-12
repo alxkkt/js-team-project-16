@@ -113,7 +113,7 @@ function trendPagination(totalResults) {
   const totalPagination = pagination(totalResults);
   totalPagination.on('beforeMove', async event => {
     const data = await getTrendFilm(event.page);
-    window.scrollTo(0, 0);
+    // window.scrollTo(0, 0);
 
     createMarkup(data);
   });
@@ -141,7 +141,6 @@ export function editDate() {
   const genres = document.querySelectorAll('#gallery-genres');
   genres.forEach(genre => {
     let currentGenres = genre.textContent.slice(0, -2).split(',');
-
     const arr = currentGenres.map(id => Number(id));
     genre.textContent = transfromGenres(genresData, arr);
   });

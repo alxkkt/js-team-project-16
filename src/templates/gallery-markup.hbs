@@ -1,7 +1,11 @@
 {{#each this}}
 <li class="film" data-id="{{id}}">
     <div class="film__item">
+        {{#if poster_path}}
         <img src="https://image.tmdb.org/t/p/w500{{poster_path}}" width="310" height="460" alt="{{title}}" loading="lazy" >
+        {{else}}
+        <img src="https://magprofoto.ru/2616-thickbox_default/foto-fon-iz-netkanogo-polotna-21-kh-40m-belyj.jpg" alt="oops" width="310" height="460">
+        {{/if}}
     </div>
     <div class="film__description">
         <p class="film__title">{{original_title}}</p>

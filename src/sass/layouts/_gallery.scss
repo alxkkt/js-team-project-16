@@ -14,9 +14,9 @@
 
 .film {
     margin-bottom: 10px;
-    &:last-child {
-        margin-bottom: 0;
-    }
+    // &:last-child {
+    //     margin-bottom: 0;
+    // }
     &:hover,
     &:focus {
         box-shadow: -1px 16px 16px -10px rgba(191,113,38,0.78);
@@ -27,16 +27,16 @@
         width: calc(100% / 2 - 32px);
         margin-left: 32px;
         margin-bottom: 32px;
-        &:nth-last-child(-n + 2) {
-            margin-bottom: 0;
-        }
+        // &:nth-last-child(-n + 2) {
+        //     margin-bottom: 0;
+        // }
     }
     @include desktop {
         width: calc(100% / 3 - 17px);
         margin-left: 17px;
-        &:nth-last-child(-n + 2) {
-            margin-bottom: 0;
-        }
+        // &:nth-last-child(-n + 2) {
+        //     margin-bottom: 0;
+        // }
     }
     &__item {
         display: flex;
@@ -45,7 +45,6 @@
     }
     &__description {
         font-family: 'Roboto';
-        font-style: normal;
         font-weight: 500;
         font-size: 12px;
         padding: 10px 0 10px 5px;

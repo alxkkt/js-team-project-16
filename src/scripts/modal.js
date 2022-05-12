@@ -50,8 +50,6 @@ function toggleClases() {
 }
 
 function createModalContent(e) {
-  // if (e.target !== gallery) return;
-
   const selectedCard = e.composedPath().find(({ tagName }) => tagName === 'LI');
   const currentId = Number(selectedCard.dataset.id);
 
