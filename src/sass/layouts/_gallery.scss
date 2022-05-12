@@ -35,6 +35,7 @@
     &:nth-last-child(-n + 2) {
       margin-bottom: 0;
     }
+
   }
   &__item {
     display: flex;
@@ -72,6 +73,9 @@
     padding: 2px 5px;
     border-radius: 2px;
   }
+
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 #date {
   padding-right: 10px;
