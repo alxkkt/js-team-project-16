@@ -1,5 +1,9 @@
 <div class="modal__inside">
+  {{#if poster_path}}
     <img class="modal__img" src="https://image.tmdb.org/t/p/w500{{poster_path}}" width="240" height="360" alt="{{title}}" />
+    {{else}}
+    <img src="https://magprofoto.ru/2616-thickbox_default/foto-fon-iz-netkanogo-polotna-21-kh-40m-belyj.jpg" alt="oops :(" width="240" height="360">
+  {{/if}}
     <div class="modal__info">
       <div class="modal__information">
         <h2 class="modal__title">{{title}}</h2>
